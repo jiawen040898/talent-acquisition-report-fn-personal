@@ -1,0 +1,15 @@
+export enum ContactType {
+    FACEBOOK = 'facebook',
+    LINKEDIN = 'linkedin',
+    TWITTER = 'twitter',
+    GOOGLEOAUTH2 = 'google-oauth2',
+    GITHUB = 'github',
+    EMAIL = 'email',
+    MOBILE = 'mobile',
+    GOOGLEAPPS = 'google-apps',
+    AUTH0 = 'auth0',
+    INSTAGRAM = 'instagram',
+    GOOGLEPLUS = 'google-plus',
+    WEBSITE = 'website',
+    OTHERS = 'others',
+}

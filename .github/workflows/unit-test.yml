@@ -1,0 +1,32 @@
+name: Unit Test Check
+on:
+    pull_request:
+        branches:
+            - master
+
+permissions:
+  actions: read
+  checks: write
+  contents: read
+
+jobs:
+    unit-test:
+        name: Unit Test
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Run unit-test composite action
+              uses: Pulsifi/github-template/unit-test-v4@master
+              with:
+                  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+            - name: Test Report
+              continue-on-error: true
+              uses: dorny/test-reporter@v1
+              if: ${{ always() }}
+              with:
+                  name: test-results
+                  path: coverage/jest-junit.xml
+                  reporter: jest-junit

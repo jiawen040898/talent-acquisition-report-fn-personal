@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ReportGeneratorService generateReportPDFAndExtractFileThenUpload should generate pdf and extract files if any and upload to idempotence folder based on report summary provided 1`] = `
+{
+  "count": 1,
+  "folderPath": "report/assessment/5/00000000-0000-0000-0000-000000000001",
+  "variable": {
+    "company_id": 5,
+    "locale": "en-US",
+    "notification_type": "email",
+    "timezone": "Asia/Kuala_Lumpur",
+    "user_account_id": 1,
+    "user_email": "jaypete@gmail.com",
+    "user_first_name": "Jay",
+  },
+}
+`;
+
+exports[`ReportGeneratorService generateReportPDFAndExtractFileThenUpload should generate pdf and extract files if any and upload to idempotence folder based on report summary provided 2`] = `
+[
+  [
+    {
+      "Body": "buffer",
+      "Bucket": "pulsifi-sandbox-document-download",
+      "Key": "report/assessment/5/00000000-0000-0000-0000-000000000001/2. Simon Peter/Simon Peter - Report.pdf",
+    },
+  ],
+  [
+    {
+      "Body": undefined,
+      "Bucket": "pulsifi-sandbox-document-download",
+      "Key": "report/assessment/5/00000000-0000-0000-0000-000000000001/2. Simon Peter/Simon Peter Resume.pdf",
+    },
+  ],
+  [
+    {
+      "Body": undefined,
+      "Bucket": "pulsifi-sandbox-document-download",
+      "Key": "report/assessment/5/00000000-0000-0000-0000-000000000001/2. Simon Peter/Simon Peter Attachment-0.pdf",
+    },
+  ],
+]
+`;
+
+exports[`ReportGeneratorService zipReportPDFAndFilesAndSendNotification should zip files and send email with the download link 1`] = `
+[
+  [
+    SendMessageCommand {
+      "input": {
+        "MessageBody": "{"recipient_email":"jaypete@gmail.com","recipient_id":"1","recipient_group":"user","email_communication_type":"application_document_download_confirmation","company_id":5,"variables":{"first_name":"Jay","download_link":"downloadLink"}}",
+        "QueueUrl": "https://test.pulsifi.me/queue/notitication/email",
+      },
+      "middlewareStack": {
+        "add": [Function],
+        "addRelativeTo": [Function],
+        "applyToStack": [Function],
+        "clone": [Function],
+        "concat": [Function],
+        "identify": [Function],
+        "identifyOnResolve": [Function],
+        "remove": [Function],
+        "removeByTag": [Function],
+        "resolve": [Function],
+        "use": [Function],
+      },
+    },
+  ],
+]
+`;
+
+exports[`ReportGeneratorService zipReportPDFAndFilesAndSendNotification should zip files and send in app message with the download link 1`] = `
+[
+  [
+    5,
+    "1",
+    {
+      "event_data": {
+        "data": {
+          "download_link": "downloadLink",
+        },
+        "meta": {
+          "company_id": 5,
+          "correlation_id": "00000000-0000-0000-0000-000000000003",
+          "env": "test",
+          "user_account_id": 1,
+        },
+      },
+      "event_type": "report-download-ready",
+    },
+  ],
+]
+`;
