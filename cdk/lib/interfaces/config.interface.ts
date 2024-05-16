@@ -1,0 +1,24 @@
+export type CommonCDKEnvironmentVariables = {
+    PUSHER_SM_NAME: string;
+    SM_NAME: string;
+    REDIS_SM_NAME: string;
+    AUTH0_SM_NAME: string;
+    AWS_ALB_DNS: string;
+    AUTH0_ENTERPRISE_DOMAIN: string;
+    AUTH0_ENTERPRISE_API_AUDIENCE: string;
+    NODE_ENV: string;
+    PULSIFI_ASSETS_DOMAIN: string;
+    NOTIFICATION_EMAIL_REQUEST_QUEUE_URL: string;
+    S3_DOCUMENT_BUCKET: string;
+    S3_DOCUMENT_DOWNLOAD_BUCKET: string;
+    SENTRY_DSN: string;
+    SERVERLESS_STAGE: string;
+    REGION: string;
+    ACCOUNT_ID: string;
+    PULSIFI_SUPPORTED_LOCALES: string;
+    UNLEASH_API_KEY: string;
+    UNLEASH_API_URL: string;
+    UNLEASH_ENV: string;
+    UNLEASH_PROJECT_ID: string;
+    PULSIFI_ASSETS_PDF_CUSTOM_FONTS: string;
+};

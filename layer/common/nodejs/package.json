@@ -1,0 +1,17 @@
+{
+    "dependencies": {
+        "@pulsifi/descriptor-lib": "5.11.1",
+        "@pulsifi/fn": "3.3.0",
+        "@pulsifi/lookup": "2.28.0",
+        "@stdlib/stats-base-dists-beta-cdf": "0.2.0",
+        "archiver": "6.0.1",
+        "axios": "1.6.5",
+        "date-fns": "2.30.0",
+        "handlebars": "4.7.8",
+        "i18next": "23.4.4",
+        "i18next-http-backend": "2.2.1",
+        "pg": "8.11.3",
+        "typeorm": "0.3.17",
+        "uuid": "9.0.1"
+    }
+}

@@ -13,10 +13,10 @@ export const custom: Custom = {
                 customInstallationCommand:
                     'yarn install --pure-lockfile --prod --ignore-optional',
                 layersDeploymentBucket:
-                    'pulsifi-${opt:stage}-${opt:region}-layers-deployment-bucket',
+                    'pulsifi-${opt:stage}-${opt:region}-layers-deployment-bucket-1',
                 compatibleRuntimes: ['nodejs18.x'],
                 retainVersions: 5,
-                dependenciesPath: './package.json',
+                dependenciesPath: './layer/common/nodejs/package.json',
             },
         },
         {
@@ -25,10 +25,10 @@ export const custom: Custom = {
                 customInstallationCommand:
                     'yarn install --pure-lockfile --prod --ignore-optional',
                 layersDeploymentBucket:
-                    'pulsifi-${opt:stage}-${opt:region}-layers-deployment-bucket',
+                    'pulsifi-${opt:stage}-${opt:region}-layers-deployment-bucket-1',
                 compatibleRuntimes: ['nodejs18.x'],
                 retainVersions: 5,
-                dependenciesPath: './layer/emulator/package.json',
+                dependenciesPath: './layer/emulator/nodejs/package.json',
                 functions: [
                     'processReportSummary',
                     'renderReportRequest',

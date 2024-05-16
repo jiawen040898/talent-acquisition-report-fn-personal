@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-import { StepFunction } from './interfaces/step-function.interface';
+import { StepFunction } from '../cdk/lib/interfaces/step-function.interface';
 
 export const stepFunctions: StepFunction = {
     stateMachines: {

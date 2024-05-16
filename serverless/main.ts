@@ -2,11 +2,10 @@
 
 import { custom } from './custom';
 import { functions } from './functions';
-import { CustomServerless } from './interfaces/step-function.interface';
 import { plugins } from './plugins';
 import { stepFunctions } from './step-functions';
 
-export const main: CustomServerless = {
+export const main = {
     service: 'talent-acquisition-report-fn',
     frameworkVersion: '3',
     useDotenv: true,
@@ -55,7 +54,7 @@ export const main: CustomServerless = {
             S3_DOCUMENT_DOWNLOAD_BUCKET:
                 '${ssm:/configs/S3_DOCUMENT_DOWNLOAD_BUCKET}',
             SENTRY_DSN:
-                'https://fa467274ac004e49a7486bb11cf19ed7@o157451.ingest.sentry.io/6080205',
+                'https://abc67274ac004e49a7486bb11cf19ed7@o157451.ingest.sentry.io/6080205',
             SERVERLESS_STAGE: '${opt:stage}',
             REGION: '${aws:region}',
             ACCOUNT_ID: '${aws:accountId}',
@@ -70,9 +69,22 @@ export const main: CustomServerless = {
         },
         deploymentBucket: {
             blockPublicAccess: true,
-            name: 'talentacquisitionrpt-${opt:stage}-${opt:region}-stack-bucket',
+            name: 'talentacquisitionrpt-${opt:stage}-${opt:region}-stack-bucket-1',
             maxPreviousDeploymentArtifacts: 5,
             serverSideEncryption: 'AES256',
+        },
+    },
+    resources: {
+        extensions: {
+            ProcessReportSummaryLogGroup: {
+                DeletionPolicy: 'Retain',
+            },
+            RenderReportRequestLogGroup: {
+                DeletionPolicy: 'Retain',
+            },
+            RenderReportEndedLogGroup: {
+                DeletionPolicy: 'Retain',
+            },
         },
     },
     plugins,
